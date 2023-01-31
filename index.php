@@ -1,3 +1,16 @@
+<?php
+    function randomPassword($number){
+    $chars = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%^&*()_+-=[]{}|;':<>,.?/\.";
+    $password ="";
+    for ($i=0; $i < $number ; $i++) { 
+        $password .= $chars[rand(0, srteln($chars) - 1)];
+    }
+    return $password;
+    }
+    var_dump(randomPassword($number))
+ ?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,6 +21,18 @@
     <title>PHP-STRONG-PASSWORD-GENERATOR</title>
 </head>
 <body>
-    
+    <h1>Strong Password Generator</h1>
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <form action="./index.php" method="GET">
+                    <input type="number" name="number">
+                    <button type="submit">Invia</button>
+                </form>
+                <p>La tua password è : <?php echo randomPassword($number) ?></p>
+            </div>
+        </div>
+    </div>
 </body>
 </html>
+
