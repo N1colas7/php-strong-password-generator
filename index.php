@@ -1,4 +1,5 @@
 <?php
+    $number=$_GET["number"];
     function randomPassword($number){
     $chars = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%^&*()_+-=[]{}|;':<>,.?/\.";
     $password ="";
@@ -7,7 +8,6 @@
     }
     return $password;
     }
-    var_dump(randomPassword($number))
  ?>
 
 
@@ -16,9 +16,9 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <link rel="stylesheet" href="style.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+   <link rel="stylesheet" href="./css/style.css">
+   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <title>PHP-STRONG-PASSWORD-GENERATOR</title>
 </head>
 <body>
@@ -28,9 +28,11 @@
             <div class="col-12">
                 <form action="./index.php" method="GET">
                     <input type="number" name="number">
-                    <button type="submit">Invia</button>
+                    <button type="submit" class="btn btn-primary">Invia</button>
                 </form>
-                <p>La tua password è : <?php echo randomPassword($number) ?></p>
+                <?php if(isset($number)){?>
+                <p>La tua password è : <h4><?php echo randomPassword($number) ?></h4></p>
+                <?php }?>
             </div>
         </div>
     </div>
